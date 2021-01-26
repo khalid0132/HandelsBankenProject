@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hnadelsbanken</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- 1st page starts -->
+    <div id="login_area">
+        <h1 class="text-center">Välkommen till Handelsbanken Sverige</h1>
+        <div class="submit_area">
+            <h4>Logga in</h4>
+            <p> <input id="eMail" type="e-mail" placeholder="e-post" class="form-control"></p>
+            <p><input id="password" type="password" placeholder="lösenord" class="form-control"></p>
+            <button id="clickBtn" class="btn btn-success">Skicka</button>
+        </div>
+    </div>
+    <!-- 1st page ends -->
+    <!-- 2nd page starts -->
+
+    <div id="transaction_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="deposit status">
+                        <h5>Deposit</h5>
+                        <h2>$ <span id="currentAmount">00</span></h2>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="withdraw status">
+                        <h5>Withdraw</h5>
+                        <h2>$ <span id="currentwithdraw">00</span></h2>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="balance status">
+                        <h5>Balance</h5>
+                        <h2>$ <span id="currentBalance">1200</span></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row common_money ">
+            <div class="col-md-6">
+                <div class="submit_area">
+                    <h2>Deposit</h2>
+                    <p><input id="depositAmount" type="text" class="form-control"
+                            placeholder="$ amount you want to deposit"></p>
+                    <button id="depositButton" class="btn btn-success">Deposit</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="submit_area">
+                    <h2>Withdraw</h2>
+                    <p><input id="withdrawInput" type="text" class="form-control"
+                            placeholder="$ amount  you want to withdraw"></p>
+                    <button id="withdrawButton" class="btn btn-success">Withdraw</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 2nd page ends -->
+
+
+
+
+
+    <script src="custom.js"></script>
+</body>
+
+</html>
