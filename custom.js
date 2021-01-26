@@ -3,7 +3,7 @@ const submitBtn = document.getElementById('clickBtn');
 submitBtn.addEventListener('click', function(){
     const loginArea = document.getElementById('login_area');
     loginArea.style.display = 'none';
-    const transactionArea = document.querySelector('#transaction_area');
+    const transactionArea = document.getElementById('transaction_area');
     transactionArea.style.display = 'block';
 });
 
@@ -11,41 +11,43 @@ submitBtn.addEventListener('click', function(){
 // Deposit button for 2nd page
 const depositButton = document.getElementById('depositButton');
 depositButton.addEventListener('click', function(){
-    const depositAmount = document.querySelector('#depositAmount').value;
+    const depositAmount = document.getElementById('depositAmount').value;
     const depositNumber = parseFloat(depositAmount);
     
-   const currentAmount = document.querySelector('#currentAmount').innerText;
-   const currentNumber = parseFloat(currentAmount);
-    
-   const totalDeposit = currentNumber + depositNumber;
+//    const currentAmount = document.getElementById('currentAmount').innerText;
+//    const currentNumber = parseFloat(currentAmount);
+//    const totalDeposit = currentNumber + depositNumber;
+//    document.getElementById('currentAmount').innerText = totalDeposit;
    
-   document.querySelector('#currentAmount').innerText = totalDeposit;
-   document.querySelector('#depositAmount').value = '';
-
-    const currentBalance = document.querySelector('#currentBalance').innerText;
-    const currentBalanceNumber = parseFloat(currentBalance);
-
-    const finalBalance = depositNumber + currentBalanceNumber;
-    document.querySelector('#currentBalance').innerText = finalBalance;
+   updateSpanText('currentAmount', depositNumber);
+   updateSpanText('currentBalance', depositNumber);
+ 
+   document.getElementById('depositAmount').value = '';
 });
+    function updateSpanText(id, depositNumber){
+        const currentBalance = document.getElementById(id).innerText;
+        const currentBalanceNumber = parseFloat(currentBalance);
+        const finalBalance = depositNumber + currentBalanceNumber;
+        document.getElementById(id).innerText = finalBalance;
+       
+    }
+
 
     // Withdraw Button for 2nd page
-    const withdrawButton = document.querySelector("#withdrawButton");
+    const withdrawButton = document.getElementById("withdrawButton");
     withdrawButton.addEventListener('click', function(){
         const withdrawInput = document.getElementById('withdrawInput').value;
         const withdrawAmount = parseFloat(withdrawInput);
         // console.log(withdrawAmount);
         const currentwithdraw = document.getElementById('currentwithdraw').innerText;
         const currentwithdrawAmount = parseFloat(currentwithdraw);
-
-        const totalWithdraw = currentwithdrawAmount - withdrawAmount;
+        const totalWithdraw = currentwithdrawAmount + withdrawAmount;
         document.getElementById('currentwithdraw').innerText = totalWithdraw; 
-        document.getElementById('withdrawInput').value = '';
-
-        const currentBalance = document.querySelector('#currentBalance').innerText;
+        
+        const currentBalance = document.getElementById('currentBalance').innerText;
         const currentBalanceNumber = parseFloat(currentBalance);
-
         const presentBalance = currentBalanceNumber - withdrawAmount;
-        document.querySelector('#currentBalance').innerText = presentBalance;
-
+        document.getElementById('currentBalance').innerText = presentBalance;
+        
+        document.getElementById('withdrawInput').value = '';
     });
